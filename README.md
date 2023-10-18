@@ -21,7 +21,7 @@ This is a personalized news feed system. It offers news from many countries and 
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -34,7 +34,7 @@ Node.js
 Clone the repository
 
 ```
-www.
+https://github.com/mertkurtoglu/News-Feed.git
 ```
 
 Open terminal
@@ -55,8 +55,6 @@ Then npm install
 ...\GitHub\News-Feed\client> npm install
 ```
 
-```
-
 ## 🎈 Usage <a name="usage"></a>
 
 - User can use with registration or without it.
@@ -66,21 +64,21 @@ Then npm install
 - User can search articles by keyword
 - User can change personal information and country on account page
 
-## ⛏️ Built Using
+## ⛏️ Built Using  <a name="built_using"></a>
 
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 - [Express](https://expressjs.com/) - Server Framework
 - [Reactjs](https://react.dev/) - Web Framework
 - [MongoDB](https://www.mongodb.com/) - Database
 
-## 🎉 Acknowledgements
+## 🎉 Acknowledgements  <a name="acknowledgement"></a>
 
 - The source or author may not be available in every country.
 - The daily limit of APIs used for news is 50.
 - Some of the news may not include images.
 
-## 🎉 Images
- <img width="350" src="./public/images/Home.png" >
+## 🎉 Images  <a name="images"></a>
+ <img src="./public/images/Home.png" >
  <img src="./public/images/Filter.png" >
  <img src="./public/images/Login.png" >
  <img src="./public/images/Register.png" >
