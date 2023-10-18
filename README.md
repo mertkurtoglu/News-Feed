@@ -78,7 +78,7 @@ Then npm install
 - Some of the news may not include images.
 
 ## 🎉 Images  <a name="images"></a>
- <img width="350" src="./public/images/Home.png" >
+ <img src="./public/images/Home.png" >
  <img src="./public/images/Filter.png" >
  <img src="./public/images/Login.png" >
  <img src="./public/images/Register.png" >
