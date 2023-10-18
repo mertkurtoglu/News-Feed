@@ -1,0 +1,58 @@
+/*LOGIN - REGISTER - ACCOUNT*/
+form {
+  width: 400px;
+  padding: 20px 20px 30px 20px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.authenticationForm h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.formButton {
+  display: grid;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+form p {
+  color: #6a6f73;
+  font-size: small;
+}
+
+.profile {
+  width: 800px;
+  padding: 20px 20px 30px 20px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*FEED*/
+.searchBox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.feedCard {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  height: 450px;
+}
+
+.filterButton {
+  margin-right: 10px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
