@@ -3,7 +3,6 @@ const User = require("../models/User");
 const newsApiUrl = process.env.NEWS_API;
 const worldNewsApiUrl = process.env.WORLD_NEWS_API;
 const defaultCountry = process.env.DEFAULT_COUNTRY;
-let response;
 
 module.exports.getHeadlines = async (req, res) => {
   const fullUri = `${newsApiUrl}/top-headlines`;
@@ -188,7 +187,7 @@ module.exports.filterResults = async (req, res) => {
         },
       });
 
-      if (newsApiResponse.data.articles.length > 0 && worldNewsApiResponse.data.news.length > 0) {
+      if (newsApiResponse.status === 200 && worldNewsApiResponse.status === 200) {
         const combinedResponse = {
           message: "Combined Articles",
           articles: [...newsApiResponse.data.articles, ...worldNewsApiResponse.data.news],

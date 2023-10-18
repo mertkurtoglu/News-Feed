@@ -56,3 +56,8 @@ form p {
   align-items: center;
   justify-content: flex-end;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}

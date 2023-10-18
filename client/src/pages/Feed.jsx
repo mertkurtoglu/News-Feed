@@ -8,12 +8,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import Pagination from "react-bootstrap/Pagination";
 import Row from "react-bootstrap/Row";
 import datas from "../data/data.json";
 import axios from "axios";
 
 function Feed() {
   const [authors, setAuthors] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const [responseData, setResponseData] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [secondResponseData, setSecondResponseData] = useState(null);
@@ -24,6 +26,7 @@ function Feed() {
   const sourceRef = useRef(null);
   const authorRef = useRef(null);
   const filter = { sourceRef, countryRef, categoryRef, authorRef };
+  const itemsPerPage = 9;
 
   // Get News on mount
   useEffect(() => {
@@ -60,6 +63,7 @@ function Feed() {
     searchNews();
     setTimeout(() => {
       setSearchQuery("");
+      setCurrentPage(1);
     }, 1000);
   };
 
@@ -132,6 +136,12 @@ function Feed() {
     authorRef.current = event.target.value;
   };
 
+  // Function to handle page change
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    document.documentElement.scrollTop = 0;
+  };
+
   // Apply filter
   const handleFilter = () => {
     axios
@@ -166,8 +176,13 @@ function Feed() {
   // Generate news cards
   const generateCards = () => {
     const dataToRender = secondResponseData || responseData;
+
     if (dataToRender && dataToRender.combinedResponse.articles && dataToRender.combinedResponse.articles.length > 0) {
-      return dataToRender.combinedResponse.articles.map((data, index) => (
+      const indexOfLastItem = currentPage * itemsPerPage;
+      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+      const currentItems = dataToRender.combinedResponse.articles.slice(indexOfFirstItem, indexOfLastItem);
+
+      return currentItems.map((data, index) => (
         <Col key={index} xs={12} sm={8} md={6} lg={4}>
           <Card className="feedCard">
             <a href={data.url} style={{ textDecoration: "none", color: "black" }}>
@@ -246,6 +261,11 @@ function Feed() {
       <div className="container">
         <Row>{generateCards()}</Row>
       </div>
+      <Pagination>
+        <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} />
+        <Pagination.Item>{currentPage}</Pagination.Item>
+        <Pagination.Next onClick={() => handlePageChange(currentPage + 1)} />
+      </Pagination>
       <Offcanvas show={showCanvas} onHide={handleCloseCanvas}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Filter</Offcanvas.Title>
